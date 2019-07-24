@@ -32,8 +32,8 @@ justify-content: center;
 height: 300px;
 background: radial-gradient(1000px circle  at 0% 0%, #25b999 0%, #274d89 100%);
 filter: drop-shadow(10px 10px 28px #274d89);
-display: flex;
-justify-content: center;
+/* display: flex;
+justify-content: center; */
 
 }
 
@@ -52,4 +52,17 @@ justify-content: center;
     border-bottom: solid 1px rgba(255, 255, 255, .8);
     height: 50px;
 }
+
+#submit {
+    all: unset;
+    padding: 20px 40px;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #e43a15 0%, #e65245 51%, #e43a15 100%);
+    color: white;
+
+
+    
+}
+
+
 
