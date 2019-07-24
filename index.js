@@ -9,27 +9,19 @@ let calculateButton = document.getElementById('submit')
 
 let calcMade = false
 
-let firstNameStored
-let lastNameStored
 
 
+let storedNamesArray = []
 
+let fullName
 
+let print = false
 
 let net_income = () => {
 
-    
-
-  
-    
- if (firstName.value !== firstNameStored || lastName.value !== lastNameStored) {
-
- 
-
-    //calculate tax
 
 
-    pension =  pensionContribution.value / 100 
+    pension = pensionContribution.value / 100
     gross_salary = grossIncome.value
 
 
@@ -43,52 +35,84 @@ let net_income = () => {
     let monthly_gross_salary
     let weekly_gross_salary
 
-    switch (true) {
-        case (gross_salary > 150001): effective_tax = ((gross_salary - 150001) * (.45)) + (99999 * .4) + (37499 * .2) + (gross_salary * nin) + (gross_salary * pension); break;
-        case (gross_salary > 50001): effective_tax = (gross_salary - 50001) * .4 + 37499 * .2 + (gross_salary * nin) + (gross_salary * pension); break;
-        case (gross_salary > 12501): effective_tax = (gross_salary - 12501) * .2 + (gross_salary * nin) + (gross_salary * pension); break;
-    }  
-
-    yearly_gross_salary = gross_salary
-    monthly_gross_salary = gross_salary / 12
-    weekly_gross_salary = gross_salary / 52
-    net_income_y = gross_salary - effective_tax
-    net_income_m = (gross_salary - effective_tax) / 12
-    net_income_w = (gross_salary - effective_tax) / 52
+    fullName = `${firstName.value} ${lastName.value}`
 
 
-    let net_salary_results = [net_income_y, net_income_m]
-       
-    //  console.log(net_salary_results)
+    if (storedNamesArray.length === 0) {
+
+        print = true
+
+    }
+
+    else if (storedNamesArray.length !== 0) {
+
+        storedNamesArray.forEach(name => {
 
 
+            if (name !== fullName) {
+
+                print = true
+
+            }
+
+            else print = false
+
+            //warning only one calculation per person
+            alert('only one calculation per person')
+
+        })
+
+    }
 
 
-       //display first name and last name
-       let p = document.createElement('p');
-       let list = document.getElementById('results')
-   
-       p.innerHTML = `hello ${firstName.value} ${lastName.value} has earned ${net_salary_results[0]} per year with ${pension} pension`;
-   
-       list.appendChild(p)
-   
-
- } else return null
-
-
-   
-    calcMade = true
-
-    firstNameStored = firstName.value
-  lastNameStored = lastName.value
+    if (print) {
 
 
 
+        switch (true) {
+            case (gross_salary > 150001): effective_tax = ((gross_salary - 150001) * (.45)) + (99999 * .4) + (37499 * .2) + (gross_salary * nin) + (gross_salary * pension); break;
+            case (gross_salary > 50001): effective_tax = (gross_salary - 50001) * .4 + 37499 * .2 + (gross_salary * nin) + (gross_salary * pension); break;
+            case (gross_salary > 12501): effective_tax = (gross_salary - 12501) * .2 + (gross_salary * nin) + (gross_salary * pension); break;
+        }
+
+        yearly_gross_salary = gross_salary
+        monthly_gross_salary = gross_salary / 12
+        weekly_gross_salary = gross_salary / 52
+        net_income_y = gross_salary - effective_tax
+        net_income_m = (gross_salary - effective_tax) / 12
+        net_income_w = (gross_salary - effective_tax) / 52
 
 
+        let net_salary_results = [net_income_y, net_income_m]
+
+        //  console.log(net_salary_results)
+
+
+
+
+        //display first name and last name
+        let p = document.createElement('p');
+        let list = document.getElementById('results')
+
+        p.innerHTML = `hello ${firstName.value} ${lastName.value} has earned ${net_salary_results[0]} per year with ${pension} pension`;
+
+        list.appendChild(p)
+
+
+        firstNameStored = firstName.value
+        lastNameStored = lastName.value
+
+
+
+        //add full name to array
+        storedNamesArray.push(fullName)
+
+        print = false
+    }
 
 }
 
-calculateButton.addEventListener("click", ()=>{
+
+calculateButton.addEventListener("click", () => {
     net_income()
 })
