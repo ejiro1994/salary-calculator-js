@@ -9,12 +9,20 @@ let calculateButton = document.getElementById('submit')
 
 let calcMade = false
 
+let firstNameStored
+let lastNameStored
+
+
 
 
 
 let net_income = () => {
+
     
- if (calcMade === false) {
+
+  
+    
+ if (firstName.value !== firstNameStored || lastName.value !== lastNameStored) {
 
  
 
@@ -51,7 +59,7 @@ let net_income = () => {
 
     let net_salary_results = [net_income_y, net_income_m]
        
-     console.log(net_salary_results)
+    //  console.log(net_salary_results)
 
 
 
@@ -64,13 +72,19 @@ let net_income = () => {
    
        list.appendChild(p)
    
-       console.log('p tag created')
 
  } else return null
 
 
    
     calcMade = true
+
+    firstNameStored = firstName.value
+  lastNameStored = lastName.value
+
+
+
+
 
 
 }
