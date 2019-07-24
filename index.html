@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,39 @@
     <link rel="stylesheet" href="index.css">
     <title>salary calculator</title>
 </head>
+
 <body>
-    
+
     <div class="website-wrapper">
-        
+
         <div class="container">
             <div class="calculator-input">
 
                 <h1 class="headline">Income Tax calulator</h1>
 
                 <div class="inputs">
-                        First name: <input type="text" name="fname">
-                        Last name: <input type="text" name="lname">
-                        Gross (pre-tax) Income <input type="text" name="gross">
-                        Pension Contribution % <input type="text" name="pension">
-                        <button id="submit">Calulate</button>
+                    
+                    First name: <input type="text" name="fname" id="fname">
+                    Last name: <input type="text" name="lname" id="lname">
+                    Gross (pre-tax) Income <input type="text" name="gross" id="gross">
+                    Pension Contribution % <input type="text" name="pension" id="pension">
+                    <button id="submit">Calulate</button>
+
                 </div>
 
-                
+
+
             </div>
-            <div class="calculator-results"><ul>
-                
-            </ul></div>
+            <div class="calculator-results">
+                <ul id="results">
+
+                </ul>
+            </div>
         </div>
-        
+
     </div>
-    
+
 </body>
 <script src="index.js"></script>
+
 </html>
